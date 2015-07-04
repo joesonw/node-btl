@@ -1,10 +1,7 @@
 var koa	 	= require('koa');
 var Pagelet = require('./lib/pagelet');
 
-var ejs		= require('ejs');
 var fs		= require('fs');
-var jsdom	= require('jsdom');
-var cheerio = require('cheerio')
 var Parser  = require('./lib/parser');
 var co 		= require('co');
 
@@ -21,48 +18,27 @@ function sleep(n) {
 
 var app = koa();
 
-var f = fs.readFileSync('./test.html').toString();
 var parser = Parser();
+var f = fs.readFileSync('./test.html').toString();
 co(function* () {
 	yield parser.load(f);
-	console.log(parser.render({test:'hello'}));
+	parser.stream().pipe(process.stdout);
 	//console.log(parser.toString());
-}).then(function(r) {
-	console.log(r);
+}).then(function() {
+
 }).catch(function(err) {
 	console.error(err.stack);
 })
 
 
 app.use(function* () {
-
-	/*var p1 = new Pagelet({
-		top: true
-	});
-	p1.set('header','<!DOCTYPE html><html><head><title>Hello world</title></head><body>');
-	p1.set('body','<h1>Loading...</h1>');
-	p1.set('footer','</body>');
-	p1.set('controller',function* (context) {
-		context.childrenData ='asd';
-	})
-
-	var p2 = new Pagelet();
-	p2.set('body',{
-		type:'jade',
-		path:'./test.jade',
-		options:{}
-	});
-	p2.set('controller',function* (context) {
-		yield sleep(3000);
-		context.msg = 'hello world';
-	});
-		
-	p1.add(p2);
+	var f = fs.readFileSync('./test.html').toString();
+	yield parser.load(f);
 		
 	this.type = 'html';
-	this.body = p1.render();*/
+	this.body = parser.stream();
 
 });
 
 
-//app.listen(8083);
+app.listen(3000);

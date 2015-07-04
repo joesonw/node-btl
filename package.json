@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --harmony index.js"
+    "start": "node --harmony test.js"
   },
   "author": "Qiaosen Huang",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "co-fs": "^1.2.0",
     "deepcopy": "^0.5.0",
     "jade": "^1.11.0",
-    "jsdom": "^5.5.0"
+    "jsdom": "^3.1.2"
   },
   "devDependencies": {},
   "repository": {
