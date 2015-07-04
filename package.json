@@ -1,0 +1,32 @@
+{
+  "name": "btl",
+  "version": "0.0.1",
+  "description": "A bigpipe template language, enhanced by jsdom, support es6 generator function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --harmony index.js"
+  },
+  "author": "Qiaosen Huang",
+  "license": "MIT",
+  "dependencies": {
+    "co": "^4.5.4",
+    "co-fs": "^1.2.0",
+    "deepcopy": "^0.5.0",
+    "jade": "^1.11.0",
+    "jsdom": "^5.5.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joesonw/node-btl.git"
+  },
+  "keywords": [
+    "bigpiple",
+    "template"
+  ],
+  "bugs": {
+    "url": "https://github.com/joesonw/node-btl/issues"
+  },
+  "homepage": "https://github.com/joesonw/node-btl#readme"
+}
