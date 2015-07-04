@@ -25,13 +25,13 @@ var cluster = require('cluster');
 
 co(function* () {
 	yield parser.load(f);
-	app.use(function* () {
+	/*app.use(function* () {
 		this.type = 'html';
 		this.body = parser.stream();
 	});
 	app.listen(3000);
-	console.log('on 3000');
-	//parser.stream().pipe(process.stdout);
+	console.log('on 3000');*/
+	parser.stream().pipe(process.stdout);
 }).then(function() {
 
 }).catch(function(err) {
