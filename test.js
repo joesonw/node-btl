@@ -31,6 +31,7 @@ co(function* () {
 	});
 	app.listen(3000);
 	console.log('on 3000');
+	//parser.stream().pipe(process.stdout);
 }).then(function() {
 
 }).catch(function(err) {

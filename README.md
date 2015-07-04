@@ -65,3 +65,9 @@ parser.addTag('MyTag',function* (ele,push,context) {
 
 ```
 
+##Contribution Notes
+
+If you are implementing a new tag, please put it under `./lib/tags` folder
+
+If it extends existing html tag, name the file like `script-wait.js`
+
