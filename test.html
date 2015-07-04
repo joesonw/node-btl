@@ -3,12 +3,13 @@
 			<title>Hello World</title>
 		</head>
 		<body>
-			<for start='0' end='10' step='+2' iterator='j'>
+			<for start="0" end="10" step="+2" iterator="j">
 				<script wait>
 					this.j++;
-					setTimeout(this.fulfill,2000) //2000ms
+					this.fulfill();
+					//setTimeout(this.fulfill,2000) //2000ms
 				</script>
-				<p> Aloha!!!!</p>
+				<p> Aloha!!!!<print name="j"></print></p>
 			</for>	
 		</body>
 	</html>
