@@ -7,16 +7,17 @@
 		<img src="https://dn-cnode.qbox.me/FtG0YVgQ6iginiLpf9W4_ShjiLfU">
 		<script embed>
 			this.$tag = 'hello';
+			this.$end = 10;
 		</script>
-		<input type="text" test="<%tag%>"/>
+		<input type="text" test="{{=tag}}"/>
 		<for start="0" end="10" step="+2" iterator="j">
-			<h1 test="<%j%>">test</h1>
+			<h1 test="{{=j}}">{{=j}}</h1>
 			<script wait>
 				this.j++;
 				this.fulfill();
 				//setTimeout(this.fulfill,2000) //2000ms
 			</script>
-			<p> Aloha!!!!<print name="j"></print></p>
+			<p>{{=j}}Aloha!!!!{{=j}},{{=j+1}}</p>
 		</for>	
 		<load src="./sub.html"></load>
 	</body>

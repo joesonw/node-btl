@@ -18,12 +18,15 @@ Write bigpipe in pure html
 			<title>Hello World</title>
 		</head>
 		<body>
-			<for start='0' end='10' step='+2' iterator='j'>
+			<script embed>
+				this.$end = 10; // do not clear up after exiting context.
+			</script>
+			<for start='0' end='{{end}}' step='+2' iterator='j'>
 				<script wait>
 					this.j++;
 					setTimeout(this.fulfill,2000) //2000ms
 				</script>
-				<p> Aloha!!!!</p>
+				<p> Aloha!!!!, {{j}}</p>
 			</for>	
 		</body>
 	</html>
