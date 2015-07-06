@@ -4,6 +4,7 @@ var Pagelet = require('./lib/pagelet');
 var fs		= require('fs');
 var Parser  = require('./lib/parser');
 var co 		= require('co');
+var axios	= require('axios');
 
 sleep = function sleep(n) {
 	return new Promise(function(accept) {
@@ -22,6 +23,10 @@ var parser = Parser();
 var f = fs.readFileSync('./test.html').toString();
 
 var cluster = require('cluster');
+parser.addController('loop',function* (ele,push,context) {
+	var response = yield axios.get('https://apiv2-test.517.today/public/region');
+	context.regions = response.data.data;
+})
 
 co(function* () {
 	yield parser.load(f);
@@ -31,7 +36,7 @@ co(function* () {
 	});
 	app.listen(3000);
 	console.log('on 3000');*/
-	parser.stream({obj:{a:1}}).pipe(process.stdout);
+	parser.stream({axios:axios}).pipe(process.stdout);
 }).then(function() {
 
 }).catch(function(err) {

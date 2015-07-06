@@ -5,19 +5,8 @@
 	<body>
 		asdljaksdjaslk
 		<img src="https://dn-cnode.qbox.me/FtG0YVgQ6iginiLpf9W4_ShjiLfU">
-		<script embed>
-			this.$tag = 'hello';
-			this.$end = 10;
-		</script>
-		<input type="text" test="{{=tag}}"/>
-		<for start="0" end="10" step="+2" iterator="j">
-			<h1 test="{{=j}}">{{=j}}</h1>
-			<script wait>
-				this.j++;
-				this.fulfill();
-				//setTimeout(this.fulfill,2000) //2000ms
-			</script>
-			<p>{{=j}}Aloha!!!!{{=j}},{{=j+1}}</p>
+		<for start="0" end="{{=this.regions.length}}" controller="loop">
+			<p>{{=this.regions[this.i].name}}</p>
 		</for>	
 		<load src="./sub.html"></load>
 	</body>

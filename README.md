@@ -21,12 +21,12 @@ Write bigpipe in pure html
 			<script embed>
 				this.$end = 10; // do not clear up after exiting context.
 			</script>
-			<for start='0' end='{{end}}' step='+2' iterator='j'>
+			<for start='0' end='{{=this.end}}' step='+2' iterator='j'>
 				<script wait>
 					this.j++;
 					setTimeout(this.fulfill,2000) //2000ms
 				</script>
-				<p> Aloha!!!!, {{j}}</p>
+				<p> Aloha!!!!, {{=this.j}}</p>
 			</for>	
 		</body>
 	</html>
