@@ -80,3 +80,73 @@ If you are implementing a new tag, please put it under `./lib/tags` folder
 
 If it extends existing html tag, name the file like `script-wait.js`
 
+
+
+##Tags
+
+### `for` tag
+
+
+```html
+<for start="" end="" step="+2" iterator="j">
+
+</for>
+```
+
+>`step` and `iterator` are not requried. default `step` is `+1`,default `iterator` is `i`
+
+
+
+
+###`script-wait` tag
+
+
+```html
+<script wait>
+	this.fulfill()
+</script>
+
+```
+
+> call `this.tag` to resume the parser.
+
+
+
+
+###`script-embed` tag
+
+
+```html
+<script embed>
+
+</script>
+
+```
+
+> runs normal js with current context
+
+> variable name starts with `$` will be carried out of current context.
+
+
+
+
+###`load` tag
+
+```html
+<load src='./submodule.html'></load>
+```
+
+> load a btl template and parse it
+
+
+
+
+###`foreach` tag
+
+```html
+<foreach in='array' iterator='a'>
+	<p>{{this.a}}</p>
+</foreach>
+```
+
+> `iterator` is not required. default is `i`
