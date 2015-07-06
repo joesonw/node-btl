@@ -32,9 +32,9 @@ co(function* () {
 	yield parser.load(f);
 	/*app.use(function* () {
 		this.type = 'html';
-		this.body = parser.stream();
+		this.body = parser.stream({axios:axios});
 	});
-	app.listen(3000);
+	app.listen(8081);
 	console.log('on 3000');*/
 	parser.stream({axios:axios}).pipe(process.stdout);
 }).then(function() {

@@ -13,23 +13,29 @@ Write bigpipe in pure html
 ###Template
 
 ```html
-	<html>
-		<head>
-			<title>Hello World</title>
-		</head>
-		<body>
-			<script embed>
-				this.$end = 10; // do not clear up after exiting context.
-			</script>
-			<for start='0' end='{{=this.end}}' step='+2' iterator='j'>
-				<script wait>
-					this.j++;
-					setTimeout(this.fulfill,2000) //2000ms
-				</script>
-				<p> Aloha!!!!, {{=this.j}}</p>
-			</for>	
-		</body>
-	</html>
+<!doctype html>
+<html>
+	<head>
+		<title>Hello World</title>
+	</head>
+	<body>
+		asdljaksdjaslk
+		<img src="https://dn-cnode.qbox.me/FtG0YVgQ6iginiLpf9W4_ShjiLfU"/>
+		<script wait>
+			var that = this;
+			this.axios.get('https://apiv2-test.517.today/public/region').then(function(response) {
+				that.$regions = response.data.data;
+				that.fulfill();
+			}).catch(function(err) {
+				throw err;
+			})
+		</script>>
+		<for start="0" end="{{=this.regions.length}}">
+			<p>{{=this.regions[this.i].name}}</p>
+		</for>	
+		<load src="./sub.html"></load>
+	</body>
+</html>
 ```
 
 ###NodeJs
