@@ -1,6 +1,6 @@
 {
   "name": "btljs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A bigpipe template language, enhanced by jsdom, support es6 generator function",
   "main": "index.js",
   "scripts": {

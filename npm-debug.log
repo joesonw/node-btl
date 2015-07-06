@@ -1,36 +1,80 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@2.11.2
-3 info using node@v0.12.5
-4 verbose node symlink /usr/local/bin/node
-5 verbose run-script [ 'prestart', 'start', 'poststart' ]
-6 info prestart btl@0.0.1
-7 info start btl@0.0.1
-8 verbose unsafe-perm in lifecycle true
-9 info btl@0.0.1 Failed to exec start script
-10 verbose stack Error: btl@0.0.1 start: `node --harmony test.js`
-10 verbose stack Exit status 1
-10 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
-10 verbose stack     at EventEmitter.emit (events.js:110:17)
-10 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
-10 verbose stack     at ChildProcess.emit (events.js:110:17)
-10 verbose stack     at maybeClose (child_process.js:1015:16)
-10 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1087:5)
-11 verbose pkgid btl@0.0.1
-12 verbose cwd /Users/djwong/bigpipe
-13 error Darwin 13.4.0
-14 error argv "node" "/usr/local/bin/npm" "start"
-15 error node v0.12.5
-16 error npm  v2.11.2
-17 error code ELIFECYCLE
-18 error btl@0.0.1 start: `node --harmony test.js`
-18 error Exit status 1
-19 error Failed at the btl@0.0.1 start script 'node --harmony test.js'.
-19 error This is most likely a problem with the btl package,
-19 error not with npm itself.
-19 error Tell the author that this fails on your system:
-19 error     node --harmony test.js
-19 error You can get their info via:
-19 error     npm owner ls btl
-19 error There is likely additional logging output above.
-20 verbose exit [ 1, true ]
+1 verbose cli [ '/home/joesonw/.nvm/versions/node/v0.12.4/bin/node',
+1 verbose cli   '/home/joesonw/.nvm/versions/node/v0.12.4/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec { raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/home/joesonw/node-btl',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /home/joesonw/.npm/btljs/0.0.2/package.tgz not in flight; packing
+9 verbose tar pack [ '/home/joesonw/.npm/btljs/0.0.2/package.tgz',
+9 verbose tar pack   '/home/joesonw/node-btl' ]
+10 verbose tarball /home/joesonw/.npm/btljs/0.0.2/package.tgz
+11 verbose folder /home/joesonw/node-btl
+12 info prepublish btljs@0.0.2
+13 verbose addLocalTarball adding from inside cache /home/joesonw/.npm/btljs/0.0.2/package.tgz
+14 silly cache afterAdd btljs@0.0.2
+15 verbose afterAdd /home/joesonw/.npm/btljs/0.0.2/package/package.json not in flight; writing
+16 verbose afterAdd /home/joesonw/.npm/btljs/0.0.2/package/package.json written
+17 silly publish { name: 'btljs',
+17 silly publish   version: '0.0.2',
+17 silly publish   description: 'A bigpipe template language, enhanced by jsdom, support es6 generator function',
+17 silly publish   main: 'index.js',
+17 silly publish   scripts:
+17 silly publish    { test: 'echo "Error: no test specified" && exit 1',
+17 silly publish      start: 'node --harmony test.js' },
+17 silly publish   author: { name: 'Qiaosen Huang' },
+17 silly publish   license: 'MIT',
+17 silly publish   dependencies:
+17 silly publish    { co: '^4.5.4',
+17 silly publish      'co-fs': '^1.2.0',
+17 silly publish      deepcopy: '^0.5.0',
+17 silly publish      jsdom: '^3.1.2',
+17 silly publish      underscore: '^1.8.3' },
+17 silly publish   devDependencies: {},
+17 silly publish   repository:
+17 silly publish    { type: 'git',
+17 silly publish      url: 'git+https://github.com/joesonw/node-btl.git' },
+17 silly publish   keywords: [ 'bigpiple', 'template' ],
+17 silly publish   bugs: { url: 'https://github.com/joesonw/node-btl/issues' },
+17 silly publish   homepage: 'https://github.com/joesonw/node-btl#readme',
+17 silly publish   readme: '##Description\n\nThis is a template language aimed for bigpipe with async support\n\nTemplate is parsed line by line.\n\nNo more messed-up&splitted-everywhere modules needed.\n\nWrite bigpipe in pure html\n\n##Example\n\n###Template\n\n```html\n<!doctype html>\n<html>\n\t<head>\n\t\t<title>Hello World</title>\n\t</head>\n\t<body>\n\t\tasdljaksdjaslk\n\t\t<img src="https://dn-cnode.qbox.me/FtG0YVgQ6iginiLpf9W4_ShjiLfU"/>\n\t\t<script wait>\n\t\t\tvar that = this;\n\t\t\tthis.axios.get(\'https://apiv2-test.517.today/public/region\').then(function(response) {\n\t\t\t\tthat.$regions = response.data.data;\n\t\t\t\tthat.fulfill();\n\t\t\t}).catch(function(err) {\n\t\t\t\tthrow err;\n\t\t\t})\n\t\t</script>>\n\t\t<for start="0" end="{{=this.regions.length}}">\n\t\t\t<p>{{=this.regions[this.i].name}}</p>\n\t\t</for>\t\n\t\t<load src="./sub.html"></load>\n\t</body>\n</html>\n```\n\n###NodeJs\n\n```js\n\tvar koa \t= require(\'koa\');\n\tvar fs\t\t= require(\'fs\');\n\tvar Parser  = require(\'./lib/parser\');\n\tvar co \t\t= require(\'co\');\n\tvar app \t= koa();\n\tvar html \t= fs.readFileSync(\'you file\');\n\n\tvar parser \t= Parser();\n\n\tco(function*() {\n\t\tyield parser.load(html);\n\t\tapp.use(function* () {\n\t\t\tthis.type = \'html\';\n\t\t\tthis.body = parser.stream();\n\t\t});\n\t});\n\t\n\tapp.listen(3000);\n\n```\n\n##Customization\n\n###Add custom tag\n\n```js\n\nparser.addTag(\'MyTag\',function* (ele,push,context) {\n\tpush(\'<p>This is a test tag</p>\');\n});\n\n```\n\n##Contribution Notes\n\nIf you are implementing a new tag, please put it under `./lib/tags` folder\n\nIf it extends existing html tag, name the file like `script-wait.js`\n\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   gitHead: 'f17f598d0dda6330bc3bc5e37033e6e412b0f6f9',
+17 silly publish   _id: 'btljs@0.0.2',
+17 silly publish   _shasum: 'e01780a7ca798f72ed90f70920520e286e962f2c',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 silly mapToRegistry name btljs
+20 silly mapToRegistry using default registry
+21 silly mapToRegistry registry https://registry.npmjs.org/
+22 silly mapToRegistry uri https://registry.npmjs.org/btljs
+23 verbose publish registryBase https://registry.npmjs.org/
+24 silly publish uploading /home/joesonw/.npm/btljs/0.0.2/package.tgz
+25 verbose stack Error: auth required for publishing
+25 verbose stack     at CachingRegistryClient.publish (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:30:14)
+25 verbose stack     at /home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/lib/publish.js:134:14
+25 verbose stack     at mapToRegistry (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/lib/utils/map-to-registry.js:55:3)
+25 verbose stack     at publish_ (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/lib/publish.js:104:3)
+25 verbose stack     at Array.<anonymous> (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+25 verbose stack     at LOOP (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+25 verbose stack     at LOOP (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+25 verbose stack     at chain (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+25 verbose stack     at /home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/lib/publish.js:73:5
+25 verbose stack     at RES (/home/joesonw/.nvm/versions/node/v0.12.4/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+26 verbose cwd /home/joesonw/node-btl
+27 error Linux 3.16.0-39-generic
+28 error argv "/home/joesonw/.nvm/versions/node/v0.12.4/bin/node" "/home/joesonw/.nvm/versions/node/v0.12.4/bin/npm" "publish"
+29 error node v0.12.4
+30 error npm  v2.10.1
+31 error code ENEEDAUTH
+32 error need auth auth required for publishing
+32 error need auth You need to authorize this machine using `npm adduser`
+33 verbose exit [ 1, true ]
